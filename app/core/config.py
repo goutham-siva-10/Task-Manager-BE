@@ -25,7 +25,9 @@ class Settings(BaseSettings):
         if value in (None, "", "*"):
             return ["*"]
         if isinstance(value, str):
-            return [origin.strip() for origin in value.split(",") if origin.strip()]
+            return [origin.strip().rstrip("/") for origin in value.split(",") if origin.strip()]
+        if isinstance(value, list):
+            return [str(origin).rstrip("/") for origin in value]
         return value
 
 
