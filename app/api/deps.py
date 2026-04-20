@@ -7,7 +7,7 @@ from app.core.security import decode_token
 from app.db.session import SessionLocal
 from app.models.user import User
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
 
 
 def get_db():
